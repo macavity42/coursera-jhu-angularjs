@@ -16,6 +16,10 @@ function ToBuyController(ShoppingListCheckOffService) {
 	toBuy.buy = function(index) {
 		ShoppingListCheckOffService.buyItem(index);
 	}
+	
+	toBuy.isEverythingBought = function () {
+		return toBuy.itemsToBuy.length == 0;
+	}
 }
 
 AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
@@ -23,6 +27,10 @@ function AlreadyBoughtController(ShoppingListCheckOffService) {
 	var alreadyBought = this;
 	
 	alreadyBought.itemsBought = ShoppingListCheckOffService.getItemsBought();
+	
+	alreadyBought.isNothingBought = function() {
+		return alreadyBought.itemsBought.length == 0;
+	}
 }
 
 function ShoppingListCheckOffService() {
@@ -48,7 +56,7 @@ function ShoppingListCheckOffService() {
 	
 	service.buyItem = function (index) {
 		bought.push(toBuy[index]);
-		toBuy.splice(index, 1);
+		toBuy.splice(index, 1); // removes item with index
 	}
 }
 
