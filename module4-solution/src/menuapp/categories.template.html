@@ -1,0 +1,11 @@
+<h2>
+	<a ui-sref="home">Home</a> - 
+	Categories
+</h2>
+
+<!-- TODO:  Should this use a component? -->
+<ul>
+	<li ng-repeat="category in categoriesCtrl.categories">
+		<a ui-sref="categories/1">{{category}}</a>
+	</li>
+</ul>
