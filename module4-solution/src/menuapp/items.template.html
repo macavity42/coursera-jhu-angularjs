@@ -4,7 +4,10 @@
 	Items
 </h2>
 
-<!-- TODO:  Should this use a component? -->
-<ul>
-	<li ng-repeat="item in itemsCtr.items">{{item}}
-</ul>
+<div id="items">
+	<div ng-repeat="item in itemsCtr.items">
+		{{item.short_name}} - {{item.name}}
+		<br/>
+		{{item.description}}
+	</div>
+</div>

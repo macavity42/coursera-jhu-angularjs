@@ -8,21 +8,19 @@ angular.module('data')
 
 MenuDataService.$inject = ['$http'];
 function MenuDataService($http) {
-  var service = this;
+	var service = this;
 
-  service.getAllCategories = function () {
-	  // TODO: this method should return a promise which is a 
-	  // result of using the $http service, using the 
-	  // following REST API endpoint: 
-	  // https://davids-restaurant.herokuapp.com/categories.json
-	  return ['1', '2'];
-  };
+	service.getAllCategories = function () {
+		var serviceUrl = 'https://davids-restaurant.herokuapp.com/categories.json';
+		return $http({url: serviceUrl}).then(function (result) {
+			return result.data;
+		});
+	};
   
   service.getItemsForCategory = function(categoryShortName) {
-	  // TODO:  this method should return a promise which is a 
-	  // result of using the $http service, using the following 
-	  // REST API endpoint: 
-	  // https://davids-restaurant.herokuapp.com/menu_items.json?category=
-	  return ['3', '4'];
+		var serviceUrl = 'https://davids-restaurant.herokuapp.com/menu_items.json?category=' + categoryShortName;
+		return $http({url: serviceUrl}).then(function (result) {
+			return result.data.menu_items;
+		});
   };
 }
