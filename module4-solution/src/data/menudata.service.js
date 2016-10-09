@@ -23,6 +23,6 @@ function MenuDataService($http) {
 	  // result of using the $http service, using the following 
 	  // REST API endpoint: 
 	  // https://davids-restaurant.herokuapp.com/menu_items.json?category=
-	  return null;
+	  return ['3', '4'];
   };
 }
