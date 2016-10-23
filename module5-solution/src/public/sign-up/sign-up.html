@@ -1,30 +1,57 @@
 <div style="padding-left: 30px">
 
-<h1 style="margin-bottom: 20px; font-size: 1.5em;">Sign up for our newsletter!</h1>
-
-<b>First Name:</b> <br/>
-<input type="text" ng-model="signUpCtrl.profile.firstName"style="color: black"> 
-<br/><br/>
-
-<b>Last Name:</b> <br/>
-<input type="text" ng-model="signUpCtrl.profile.lastName"style="color: black"> 
-<br/><br/>
-
-<b>Email Address:</b> <br/>
-<input type="text" ng-model="signUpCtrl.profile.emailAddress"style="color: black"> 
-<br/><br/>
-
-<b>Phone Number:</b> <br/>
-<input type="text" ng-model="signUpCtrl.profile.phoneNumber"style="color: black"> 
-<br/><br/>
-
-<b>Menu # of Favorite Dish:</b> <br/>
-<input type="text" ng-model="signUpCtrl.profile.favoriteDish"style="color: black"> 
-<br/><br/>
-
-<button ng-click="signUpCtrl.submit()" style="color: black">Submit</button>
-<br/><br/>
-
-<span ng-if="signUpCtrl.infoSaved">Your information has been saved.</span>
+	<h1 style="margin-bottom: 20px; font-size: 1.5em;">Sign up for our newsletter!</h1>
+	
+	<form name='signUpForm' novalidate>
+	
+		<b>First Name:</b> <br/>
+		<input type="text" ng-model="signUpCtrl.profile.firstName" style="color: black" 
+			name="firstName" required>
+		<span ng-if="signUpForm.firstName.$error.required && signUpForm.firstName.$touched" style="font-style: italic; color: red;">
+			First Name is required.
+		</span>
+		<br/><br/>
+		
+		<b>Last Name:</b> <br/>
+		<input type="text" ng-model="signUpCtrl.profile.lastName" style="color: black" 
+			name="lastName" required> 
+		<span ng-if="signUpForm.lastName.$error.required && signUpForm.lastName.$touched" style="font-style: italic; color: red;">
+			Last Name is required.
+		</span>
+		<br/><br/>
+		
+		<b>Email Address:</b> <br/>
+		<input type="text" ng-model="signUpCtrl.profile.emailAddress" style="color: black" 
+			name="emailAddress" required> 
+		<span ng-if="signUpForm.emailAddress.$error.required && signUpForm.emailAddress.$touched" style="font-style: italic; color: red;">
+			Email Address is required.
+		</span>
+		<br/><br/>
+		
+		<b>Phone Number:</b> <br/>
+		<input type="text" ng-model="signUpCtrl.profile.phoneNumber" style="color: black" 
+			name="phoneNumber" required> 
+		<span ng-if="signUpForm.phoneNumber.$error.required && signUpForm.phoneNumber.$touched" style="font-style: italic; color: red;">
+			Phone Number is required.
+		</span>
+		<br/><br/>
+		
+		<b>Menu # of Favorite Dish:</b> <br/>
+		<input type="text" ng-model="signUpCtrl.profile.favoriteDish" style="color: black"
+			name="favoriteDish" required> 
+		<span ng-if="signUpForm.favoriteDish.$error.required && signUpForm.favoriteDish.$touched" style="font-style: italic; color: red;">
+			Favorite Dish is required.
+		</span>
+		<span ng-if="signUpCtrl.noSuchMenuItem" style="font-style: italic; color: red;">
+			No such menu number exists.
+		</span>
+		<br/><br/>
+		
+		<button ng-disabled="signUpForm.$invalid" ng-click="signUpCtrl.submit()" style="color: black">Submit</button>
+		<br/><br/>
+		
+		<span ng-if="signUpCtrl.infoSaved">Your information has been saved.</span>
+	
+	</form>
 
 </div>

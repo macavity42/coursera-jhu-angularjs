@@ -26,12 +26,9 @@ function MenuService($http, ApiPath) {
     });
   };
   
+  /* Return the promise */
   service.getMenuItem = function (shortName) {
-	  return $http.get(ApiPath + '/menu_items/' + shortName + ".json")
-	  .then(function(response) {
-		  console.log("service.getMenuItem()", response.data);
-		  return response.data;
-	  });
+	  return $http.get(ApiPath + '/menu_items/' + shortName + ".json");
   };
 
 }

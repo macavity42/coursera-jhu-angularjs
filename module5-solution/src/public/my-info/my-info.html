@@ -1,4 +1,4 @@
-<div style="padding-left: 30px" ng-if="myInfoCtrl.registered()">
+<div style="padding-left: 30px; padding-right: 30px;" ng-if="myInfoCtrl.registered()">
 
 	<h1 style="margin-bottom: 20px; font-size: 1.5em;">Profile</h1>
 	
@@ -19,7 +19,18 @@
 	<br/><br/>
 	
 	<b>Favorite Dish:</b> <br/>
-		<menu-item menu-item="myInfoCtrl.favoriteMenuItem"></menu-item>
+	<div style="float: left;">
+		<img class="img-responsive" 
+			ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.profile.favoriteMenuItem.short_name}}.jpg" 
+			alt="{{$ctrl.menuItem.name}}"
+			style="border: 2px solid black;">
+	</div>
+	<div>
+		{{myInfoCtrl.profile.favoriteMenuItem.name}} 
+		( {{myInfoCtrl.profile.favoriteMenuItem.short_name}} )
+		- {{myInfoCtrl.profile.favoriteMenuItem.description}}
+	</div>
+	<div style="clear: both;"></div>
 	<br/><br/>
 
 </div>

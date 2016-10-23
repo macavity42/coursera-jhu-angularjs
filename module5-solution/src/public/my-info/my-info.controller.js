@@ -4,14 +4,11 @@
 angular.module('public')
 .controller('MyInfoController', MyInfoController);
 
-MyInfoController.$inject = ['profile', 'MenuService'];
-function MyInfoController(profile, MenuService) {
+MyInfoController.$inject = ['profile', 'ApiPath'];
+function MyInfoController(profile, ApiPath) {
 	var $ctrl = this;
 	$ctrl.profile = profile;
-	
-	if ($ctrl.registered) {
-		$ctrl.favoriteMenuItem = MenuService.getMenuItem($ctrl.profile.favoriteItem);
-	}
+	$ctrl.basePath = ApiPath;
 	
 	$ctrl.registered = function () {
 		return $ctrl.profile != undefined;
