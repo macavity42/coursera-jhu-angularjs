@@ -1,0 +1,34 @@
+<div style="padding-left: 30px" ng-if="myInfoCtrl.registered()">
+
+	<h1 style="margin-bottom: 20px; font-size: 1.5em;">Profile</h1>
+	
+	<b>First Name:</b> <br/>
+	{{myInfoCtrl.profile.firstName}}
+	<br/><br/>
+	
+	<b>Last Name:</b> <br/>
+	{{myInfoCtrl.profile.lastName}}
+	<br/><br/>
+	
+	<b>Email Address:</b> <br/>
+	{{myInfoCtrl.profile.emailAddress}}
+	<br/><br/>
+	
+	<b>Phone Number:</b> <br/>
+	{{myInfoCtrl.profile.phoneNumber}}
+	<br/><br/>
+	
+	<b>Favorite Dish:</b> <br/>
+		<menu-item menu-item="myInfoCtrl.favoriteMenuItem"></menu-item>
+	<br/><br/>
+
+</div>
+
+<div style="padding-left: 30px" ng-if="!myInfoCtrl.registered()">
+	Not Signed Up Yet.<br/><br/>
+	
+	<a ui-sref="public.signup" 
+		style="font-weight: bold; color: lightblue; text-decoration: underline;">
+		Sign up Now!
+	</a>
+</div>

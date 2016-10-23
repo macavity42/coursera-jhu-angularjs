@@ -1,0 +1,30 @@
+<div style="padding-left: 30px">
+
+<h1 style="margin-bottom: 20px; font-size: 1.5em;">Sign up for our newsletter!</h1>
+
+<b>First Name:</b> <br/>
+<input type="text" ng-model="signUpCtrl.profile.firstName"style="color: black"> 
+<br/><br/>
+
+<b>Last Name:</b> <br/>
+<input type="text" ng-model="signUpCtrl.profile.lastName"style="color: black"> 
+<br/><br/>
+
+<b>Email Address:</b> <br/>
+<input type="text" ng-model="signUpCtrl.profile.emailAddress"style="color: black"> 
+<br/><br/>
+
+<b>Phone Number:</b> <br/>
+<input type="text" ng-model="signUpCtrl.profile.phoneNumber"style="color: black"> 
+<br/><br/>
+
+<b>Menu # of Favorite Dish:</b> <br/>
+<input type="text" ng-model="signUpCtrl.profile.favoriteDish"style="color: black"> 
+<br/><br/>
+
+<button ng-click="signUpCtrl.submit()" style="color: black">Submit</button>
+<br/><br/>
+
+<span ng-if="signUpCtrl.infoSaved">Your information has been saved.</span>
+
+</div>
